@@ -1,0 +1,582 @@
+{
+  "source_sha256": "a92f9e3457db4c362bb6f0a3141edc2f3daa0e7443a0a781e5a6ee58d7e0207e",
+  "config": {
+    "mu_bounds": [
+      0.01,
+      3
+    ],
+    "alpha_bounds": [
+      0,
+      2
+    ],
+    "r_max": 0.8,
+    "beta_candidates": [
+      0.5,
+      1,
+      2
+    ],
+    "solver": {
+      "tolerance": 1e-09,
+      "max_iterations": 1000
+    },
+    "diagnostic_grid": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  "violations": [],
+  "splits": {
+    "development": [
+      "dev-a",
+      "dev-b"
+    ],
+    "external": [
+      "external"
+    ],
+    "excluded": []
+  },
+  "notes": [
+    "网格上的总似然最大者只是有限候选最佳,不声称连续beta全局最优",
+    "背景/核份额为事件时刻条件强度分解,分母与似然相同,不是实际因果传播链",
+    "时间变换诊断基于同资料拟合参数,不套独立同分布检验p值;末段无事件尾为右删失,不进经验分布",
+    "截短拟合只用不超过f*T的事件且积分到f*T;外期评分始终用完整external窗与冻结参数",
+    "空开发窗仍贡献-mu*T;未完成候选如实标注状态,不跳过后报已求完"
+  ],
+  "fit": {
+    "candidates": [
+      {
+        "beta": 0.5,
+        "alpha_upper_effective": 0.4,
+        "stability_bound": 0.4,
+        "alpha_bound_given": 2,
+        "status": "converged",
+        "iterations": 7,
+        "loglik": -27.751472265275673,
+        "mu": 0.02783923179171024,
+        "alpha": 0.39479859222464886,
+        "branching_ratio": 0.7895971844492977,
+        "grad": [
+          2.7927882229050738e-11,
+          4.618527782440651e-14
+        ],
+        "kkt_residual": 2.7927882229050738e-11,
+        "dual_gap": 8.300639612878926e-11,
+        "mu_bound": null,
+        "alpha_bound": null,
+        "stability_constraint_active": false,
+        "neg_hessian_eigs": [
+          37.42445203314105,
+          2804.276987490579
+        ],
+        "flat_direction": false,
+        "selected": true
+      },
+      {
+        "beta": 1,
+        "alpha_upper_effective": 0.8,
+        "stability_bound": 0.8,
+        "alpha_bound_given": 2,
+        "status": "converged",
+        "iterations": 5,
+        "loglik": -29.407850153812422,
+        "mu": 0.04509094006922877,
+        "alpha": 0.5649711870172777,
+        "branching_ratio": 0.5649711870172777,
+        "grad": [
+          1.7763568394002505e-15,
+          0.0
+        ],
+        "kkt_residual": 1.7763568394002505e-15,
+        "dual_gap": 5.24897291841379e-15,
+        "mu_bound": null,
+        "alpha_bound": null,
+        "stability_constraint_active": false,
+        "neg_hessian_eigs": [
+          11.230603290383442,
+          1819.984833807185
+        ],
+        "flat_direction": false
+      },
+      {
+        "beta": 2,
+        "alpha_upper_effective": 1.6,
+        "stability_bound": 1.6,
+        "alpha_bound_given": 2,
+        "status": "converged",
+        "iterations": 6,
+        "loglik": -29.987967361638965,
+        "mu": 0.05991595591515422,
+        "alpha": 0.7687642197081669,
+        "branching_ratio": 0.38438210985408344,
+        "grad": [
+          -1.7763568394002505e-15,
+          0.0
+        ],
+        "kkt_residual": 1.7763568394002505e-15,
+        "dual_gap": 8.866854968508559e-17,
+        "mu_bound": null,
+        "alpha_bound": null,
+        "stability_constraint_active": false,
+        "neg_hessian_eigs": [
+          4.810993790108228,
+          1629.9548569069357
+        ],
+        "flat_direction": false
+      }
+    ],
+    "selected_index": 0,
+    "selected": {
+      "beta": 0.5,
+      "alpha_upper_effective": 0.4,
+      "stability_bound": 0.4,
+      "alpha_bound_given": 2,
+      "status": "converged",
+      "iterations": 7,
+      "loglik": -27.751472265275673,
+      "mu": 0.02783923179171024,
+      "alpha": 0.39479859222464886,
+      "branching_ratio": 0.7895971844492977,
+      "grad": [
+        2.7927882229050738e-11,
+        4.618527782440651e-14
+      ],
+      "kkt_residual": 2.7927882229050738e-11,
+      "dual_gap": 8.300639612878926e-11,
+      "mu_bound": null,
+      "alpha_bound": null,
+      "stability_constraint_active": false,
+      "neg_hessian_eigs": [
+        37.42445203314105,
+        2804.276987490579
+      ],
+      "flat_direction": false,
+      "selected": true
+    },
+    "tie": false,
+    "provisional": false,
+    "selection_note": "有限网格总似然最大",
+    "dev_windows": [
+      {
+        "window": "dev-a",
+        "split": "development",
+        "events": 6,
+        "T": 100,
+        "sum_log_lambda": -9.308978096724791,
+        "integral": 7.52150628586681,
+        "loglik": -16.8304843825916,
+        "mean_log_lambda": -1.5514963494541318
+      },
+      {
+        "window": "dev-b",
+        "split": "development",
+        "events": 4,
+        "T": 8,
+        "sum_log_lambda": -8.442494168551681,
+        "integral": 2.478493714132394,
+        "loglik": -10.920987882684075,
+        "mean_log_lambda": -2.1106235421379202
+      }
+    ],
+    "dev_total_loglik": -27.751472265275673
+  },
+  "clustering": {
+    "branching_ratio": 0.7895971844492977,
+    "dev_event_excitation_share_mean": 0.6993362966494516,
+    "external_event_excitation_share_mean": 0.647659665688674,
+    "poisson_reference": {
+      "mu": 0.09259259259259259,
+      "loglik": -33.79546134130174,
+      "hawkes_minus_poisson_loglik": 6.043989076026065
+    },
+    "note": "branching_ratio=alpha/beta为稳态下自激份额;事件级份额为条件强度分解均值,均非因果链"
+  },
+  "external": {
+    "windows": [
+      {
+        "window": "external",
+        "split": "external",
+        "events": 4,
+        "T": 10,
+        "sum_log_lambda": -7.2777955988973435,
+        "integral": 3.0980695036288513,
+        "loglik": -10.375865102526195,
+        "mean_log_lambda": -1.8194488997243359
+      }
+    ],
+    "total_loglik": -10.375865102526195,
+    "note": "冻结参数,各external窗独立起窗按自身事件更新条件强度,不重拟合"
+  },
+  "diagnostics": {
+    "development": {
+      "complete_intervals": 10,
+      "mean": 0.6407466817046118,
+      "variance": 0.4426715094181525,
+      "min": 0.01391961589585512,
+      "max": 1.730214468530276,
+      "censored_tails": [
+        {
+          "window": "dev-a",
+          "start": 9.5,
+          "end": 100,
+          "tau": 3.543471513000201
+        },
+        {
+          "window": "dev-b",
+          "start": 7.9,
+          "end": 8,
+          "tau": 0.049061669952885814
+        }
+      ],
+      "cdf": [
+        {
+          "grid": 0,
+          "empirical_cdf": 0.0,
+          "exp1_cdf": 0.0,
+          "diff": 0.0
+        },
+        {
+          "grid": 1,
+          "empirical_cdf": 0.7,
+          "exp1_cdf": 0.6321205588285577,
+          "diff": 0.06787944117144229
+        },
+        {
+          "grid": 2,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.8646647167633873,
+          "diff": 0.1353352832366127
+        },
+        {
+          "grid": 4,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9816843611112658,
+          "diff": 0.01831563888873422
+        },
+        {
+          "grid": 6,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9975212478233336,
+          "diff": 0.0024787521766663767
+        },
+        {
+          "grid": 8,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9996645373720975,
+          "diff": 0.00033546262790251635
+        },
+        {
+          "grid": 10,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9999546000702375,
+          "diff": 4.539992976249074e-05
+        }
+      ]
+    },
+    "external": {
+      "complete_intervals": 4,
+      "mean": 0.6150972837519643,
+      "variance": 0.7182772380341981,
+      "min": 0.04129303227737914,
+      "max": 2.0730030896425036,
+      "censored_tails": [
+        {
+          "window": "external",
+          "start": 8,
+          "end": 10,
+          "tau": 0.6376803686209945
+        }
+      ],
+      "cdf": [
+        {
+          "grid": 0,
+          "empirical_cdf": 0.0,
+          "exp1_cdf": 0.0,
+          "diff": 0.0
+        },
+        {
+          "grid": 1,
+          "empirical_cdf": 0.75,
+          "exp1_cdf": 0.6321205588285577,
+          "diff": 0.11787944117144233
+        },
+        {
+          "grid": 2,
+          "empirical_cdf": 0.75,
+          "exp1_cdf": 0.8646647167633873,
+          "diff": -0.1146647167633873
+        },
+        {
+          "grid": 4,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9816843611112658,
+          "diff": 0.01831563888873422
+        },
+        {
+          "grid": 6,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9975212478233336,
+          "diff": 0.0024787521766663767
+        },
+        {
+          "grid": 8,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9996645373720975,
+          "diff": 0.00033546262790251635
+        },
+        {
+          "grid": 10,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9999546000702375,
+          "diff": 4.539992976249074e-05
+        }
+      ]
+    }
+  },
+  "truncation": [
+    {
+      "fraction": 0.5,
+      "kept_events": 9,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.0675743681625141,
+        "alpha": 0.3528710540037961,
+        "branching_ratio": 0.7057421080075922,
+        "status": "converged"
+      },
+      "dev_total_loglik": -22.38090036262738,
+      "external_total_loglik": -9.328834224645618
+    },
+    {
+      "fraction": 0.6,
+      "kept_events": 9,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "max-iterations",
+        "2": "max-iterations"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.051991727506523595,
+        "alpha": 0.3497679481156936,
+        "branching_ratio": 0.6995358962313872,
+        "status": "converged"
+      },
+      "dev_total_loglik": -23.348527594960228,
+      "external_total_loglik": -9.62961517032001
+    },
+    {
+      "fraction": 0.7,
+      "kept_events": 9,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.0417517476455751,
+        "alpha": 0.34937525465275215,
+        "branching_ratio": 0.6987505093055043,
+        "status": "converged"
+      },
+      "dev_total_loglik": -24.07015434411497,
+      "external_total_loglik": -9.887982976113385
+    },
+    {
+      "fraction": 0.8,
+      "kept_events": 9,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.034640719554655156,
+        "alpha": 0.3503495321732032,
+        "branching_ratio": 0.7006990643464064,
+        "status": "converged"
+      },
+      "dev_total_loglik": -24.627428921965887,
+      "external_total_loglik": -10.1087141734711
+    },
+    {
+      "fraction": 0.9,
+      "kept_events": 9,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "max-iterations",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.029477630115570152,
+        "alpha": 0.3520179277914962,
+        "branching_ratio": 0.7040358555829924,
+        "status": "converged"
+      },
+      "dev_total_loglik": -25.071140539699122,
+      "external_total_loglik": -10.29845377661823
+    },
+    {
+      "fraction": 1.0,
+      "kept_events": 10,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.02783923179171024,
+        "alpha": 0.39479859222464886,
+        "branching_ratio": 0.7895971844492977,
+        "status": "converged"
+      },
+      "dev_total_loglik": -27.751472265275673,
+      "external_total_loglik": -10.375865102526195
+    }
+  ],
+  "verification": {
+    "recursion_max_abs_err": 2.220446049250313e-16,
+    "rescaled_identity_max_abs_err": 8.881784197001252e-16,
+    "quadrature_max_abs_err": 3.084349932613861e-05,
+    "decomposition_sum_max_abs_err": 2.220446049250313e-16,
+    "note": "递推对全部beta候选做直接双重求和核对;数值积分为中点法,仅n<=2000的窗;分解每事件份额和应为1"
+  },
+  "headline": {
+    "source_sha256": "a92f9e3457db4c362bb6f0a3141edc2f3daa0e7443a0a781e5a6ee58d7e0207e",
+    "violations": [],
+    "selected": {
+      "beta": 0.5,
+      "mu": 0.02783923179171024,
+      "alpha": 0.39479859222464886,
+      "branching_ratio": 0.7895971844492977,
+      "status": "converged"
+    },
+    "tie": false,
+    "provisional": false,
+    "candidate_statuses": {
+      "0.5": "converged",
+      "1": "converged",
+      "2": "converged"
+    },
+    "dev_total_loglik": -27.751472265275673,
+    "poisson_delta_loglik": 6.043989076026065,
+    "clustering": {
+      "branching_ratio": 0.7895971844492977,
+      "dev_event_excitation_share_mean": 0.6993362966494516,
+      "external_event_excitation_share_mean": 0.647659665688674,
+      "poisson_reference": {
+        "mu": 0.09259259259259259,
+        "loglik": -33.79546134130174,
+        "hawkes_minus_poisson_loglik": 6.043989076026065
+      },
+      "note": "branching_ratio=alpha/beta为稳态下自激份额;事件级份额为条件强度分解均值,均非因果链"
+    },
+    "external_total_loglik": -10.375865102526195,
+    "truncation": [
+      {
+        "fraction": 0.5,
+        "kept_events": 9,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.0675743681625141,
+          "alpha": 0.3528710540037961,
+          "branching_ratio": 0.7057421080075922,
+          "status": "converged"
+        },
+        "external_total_loglik": -9.328834224645618
+      },
+      {
+        "fraction": 0.6,
+        "kept_events": 9,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.051991727506523595,
+          "alpha": 0.3497679481156936,
+          "branching_ratio": 0.6995358962313872,
+          "status": "converged"
+        },
+        "external_total_loglik": -9.62961517032001
+      },
+      {
+        "fraction": 0.7,
+        "kept_events": 9,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.0417517476455751,
+          "alpha": 0.34937525465275215,
+          "branching_ratio": 0.6987505093055043,
+          "status": "converged"
+        },
+        "external_total_loglik": -9.887982976113385
+      },
+      {
+        "fraction": 0.8,
+        "kept_events": 9,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.034640719554655156,
+          "alpha": 0.3503495321732032,
+          "branching_ratio": 0.7006990643464064,
+          "status": "converged"
+        },
+        "external_total_loglik": -10.1087141734711
+      },
+      {
+        "fraction": 0.9,
+        "kept_events": 9,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.029477630115570152,
+          "alpha": 0.3520179277914962,
+          "branching_ratio": 0.7040358555829924,
+          "status": "converged"
+        },
+        "external_total_loglik": -10.29845377661823
+      },
+      {
+        "fraction": 1.0,
+        "kept_events": 10,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.02783923179171024,
+          "alpha": 0.39479859222464886,
+          "branching_ratio": 0.7895971844492977,
+          "status": "converged"
+        },
+        "external_total_loglik": -10.375865102526195
+      }
+    ],
+    "verification": {
+      "recursion_max_abs_err": 2.220446049250313e-16,
+      "rescaled_identity_max_abs_err": 8.881784197001252e-16,
+      "quadrature_max_abs_err": 3.084349932613861e-05,
+      "decomposition_sum_max_abs_err": 2.220446049250313e-16,
+      "note": "递推对全部beta候选做直接双重求和核对;数值积分为中点法,仅n<=2000的窗;分解每事件份额和应为1"
+    }
+  }
+}

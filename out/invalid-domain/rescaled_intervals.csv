@@ -1,0 +1,11 @@
+window,split,index,start,end,tau,kind
+dev-b,development,1,0.0,0.5,0.24637933266378303,complete
+dev-b,development,2,0.5,3,1.2499844668735216,complete
+dev-b,development,3,3,3.1,0.052599113048603985,complete
+dev-b,development,4,3.1,7.9,2.398459808437556,complete
+dev-b,development,5,7.9,8,0.05257727890728859,censored_tail
+external,external,1,0.0,2,0.9855173306551321,complete
+external,external,2,2,2.1,0.052576871055088764,complete
+external,external,3,2.1,2.5,0.21534169382494658,complete
+external,external,4,2.5,8,2.7432643893037585,complete
+external,external,5,8,10,1.0033948411684166,censored_tail

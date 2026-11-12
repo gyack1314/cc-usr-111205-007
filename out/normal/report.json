@@ -1,0 +1,583 @@
+{
+  "source_sha256": "dc4f6619595cad1ef16fd5f76582028d2b714ca6e6a6f669a86e81b9915d337e",
+  "config": {
+    "mu_bounds": [
+      0.01,
+      3
+    ],
+    "alpha_bounds": [
+      0,
+      2
+    ],
+    "r_max": 0.8,
+    "beta_candidates": [
+      0.5,
+      1,
+      2
+    ],
+    "solver": {
+      "tolerance": 1e-09,
+      "max_iterations": 1000
+    },
+    "diagnostic_grid": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  "violations": [],
+  "splits": {
+    "development": [
+      "dev-a",
+      "dev-b"
+    ],
+    "external": [
+      "external"
+    ],
+    "excluded": []
+  },
+  "notes": [
+    "网格上的总似然最大者只是有限候选最佳,不声称连续beta全局最优",
+    "背景/核份额为事件时刻条件强度分解,分母与似然相同,不是实际因果传播链",
+    "时间变换诊断基于同资料拟合参数,不套独立同分布检验p值;末段无事件尾为右删失,不进经验分布",
+    "截短拟合只用不超过f*T的事件且积分到f*T;外期评分始终用完整external窗与冻结参数",
+    "空开发窗仍贡献-mu*T;未完成候选如实标注状态,不跳过后报已求完",
+    "多个beta候选总似然在1e-8相对容差内相同(alpha=0时beta不可识别是常见情形),按约定取先列者"
+  ],
+  "fit": {
+    "candidates": [
+      {
+        "beta": 0.5,
+        "alpha_upper_effective": 0.4,
+        "stability_bound": 0.4,
+        "alpha_bound_given": 2,
+        "status": "converged",
+        "iterations": 6,
+        "loglik": -15.877866649021193,
+        "mu": 0.5555555555480133,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "grad": [
+          2.4436985768261366e-10,
+          -5.187927122660365
+        ],
+        "kkt_residual": 2.4436985768261366e-10,
+        "dual_gap": 5.973485410037875e-10,
+        "mu_bound": null,
+        "alpha_bound": "lower",
+        "stability_constraint_active": false,
+        "neg_hessian_eigs": [
+          5.3013159951986815,
+          45.59634450191321
+        ],
+        "flat_direction": false,
+        "selected": true
+      },
+      {
+        "beta": 1,
+        "alpha_upper_effective": 0.8,
+        "stability_bound": 0.8,
+        "alpha_bound_given": 2,
+        "status": "converged",
+        "iterations": 6,
+        "loglik": -15.877866649021186,
+        "mu": 0.5555555555555535,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "grad": [
+          6.750155989720952e-14,
+          -2.2592935092703126
+        ],
+        "kkt_residual": 6.750155989720952e-14,
+        "dual_gap": 1.6500381308206786e-13,
+        "mu_bound": null,
+        "alpha_bound": "lower",
+        "stability_constraint_active": false,
+        "neg_hessian_eigs": [
+          4.24566208692972,
+          36.818502804389915
+        ],
+        "flat_direction": false
+      },
+      {
+        "beta": 2,
+        "alpha_upper_effective": 1.6,
+        "stability_bound": 1.6,
+        "alpha_bound_given": 2,
+        "status": "converged",
+        "iterations": 5,
+        "loglik": -15.877866649021188,
+        "mu": 0.5555555555555556,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "grad": [
+          0.0,
+          -0.3700109353578296
+        ],
+        "kkt_residual": 0.0,
+        "dual_gap": -0.0,
+        "mu_bound": null,
+        "alpha_bound": "lower",
+        "stability_constraint_active": false,
+        "neg_hessian_eigs": [
+          2.959490872465235,
+          34.19316992956607
+        ],
+        "flat_direction": false
+      }
+    ],
+    "selected_index": 0,
+    "selected": {
+      "beta": 0.5,
+      "alpha_upper_effective": 0.4,
+      "stability_bound": 0.4,
+      "alpha_bound_given": 2,
+      "status": "converged",
+      "iterations": 6,
+      "loglik": -15.877866649021193,
+      "mu": 0.5555555555480133,
+      "alpha": 0.0,
+      "branching_ratio": 0.0,
+      "grad": [
+        2.4436985768261366e-10,
+        -5.187927122660365
+      ],
+      "kkt_residual": 2.4436985768261366e-10,
+      "dual_gap": 5.973485410037875e-10,
+      "mu_bound": null,
+      "alpha_bound": "lower",
+      "stability_constraint_active": false,
+      "neg_hessian_eigs": [
+        5.3013159951986815,
+        45.59634450191321
+      ],
+      "flat_direction": false,
+      "selected": true
+    },
+    "tie": true,
+    "provisional": false,
+    "selection_note": "有限网格总似然最大",
+    "dev_windows": [
+      {
+        "window": "dev-a",
+        "split": "development",
+        "events": 6,
+        "T": 10,
+        "sum_log_lambda": -3.526719989494171,
+        "integral": 5.555555555480133,
+        "loglik": -9.082275544974305,
+        "mean_log_lambda": -0.5877866649156952
+      },
+      {
+        "window": "dev-b",
+        "split": "development",
+        "events": 4,
+        "T": 8,
+        "sum_log_lambda": -2.3511466596627804,
+        "integral": 4.444444444384106,
+        "loglik": -6.795591104046887,
+        "mean_log_lambda": -0.5877866649156951
+      }
+    ],
+    "dev_total_loglik": -15.877866649021191
+  },
+  "clustering": {
+    "branching_ratio": 0.0,
+    "dev_event_excitation_share_mean": 0.0,
+    "external_event_excitation_share_mean": 0.0,
+    "poisson_reference": {
+      "mu": 0.5555555555555556,
+      "loglik": -15.87786664902119,
+      "hawkes_minus_poisson_loglik": -3.552713678800501e-15
+    },
+    "note": "branching_ratio=alpha/beta为稳态下自激份额;事件级份额为条件强度分解均值,均非因果链"
+  },
+  "external": {
+    "windows": [
+      {
+        "window": "external",
+        "split": "external",
+        "events": 4,
+        "T": 10,
+        "sum_log_lambda": -2.3511466596627804,
+        "integral": 5.555555555480133,
+        "loglik": -7.906702215142913,
+        "mean_log_lambda": -0.5877866649156951
+      }
+    ],
+    "total_loglik": -7.906702215142913,
+    "note": "冻结参数,各external窗独立起窗按自身事件更新条件强度,不重拟合"
+  },
+  "diagnostics": {
+    "development": {
+      "complete_intervals": 10,
+      "mean": 0.9666666666535431,
+      "variance": 0.8106172839286071,
+      "min": 0.05555555555480138,
+      "max": 2.666666666630464,
+      "censored_tails": [
+        {
+          "window": "dev-a",
+          "start": 9.5,
+          "end": 10,
+          "tau": 0.27777777777400664
+        },
+        {
+          "window": "dev-b",
+          "start": 7.9,
+          "end": 8,
+          "tau": 0.05555555555480113
+        }
+      ],
+      "cdf": [
+        {
+          "grid": 0,
+          "empirical_cdf": 0.0,
+          "exp1_cdf": 0.0,
+          "diff": 0.0
+        },
+        {
+          "grid": 1,
+          "empirical_cdf": 0.6,
+          "exp1_cdf": 0.6321205588285577,
+          "diff": -0.03212055882855769
+        },
+        {
+          "grid": 2,
+          "empirical_cdf": 0.8,
+          "exp1_cdf": 0.8646647167633873,
+          "diff": -0.06466471676338725
+        },
+        {
+          "grid": 4,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9816843611112658,
+          "diff": 0.01831563888873422
+        },
+        {
+          "grid": 6,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9975212478233336,
+          "diff": 0.0024787521766663767
+        },
+        {
+          "grid": 8,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9996645373720975,
+          "diff": 0.00033546262790251635
+        },
+        {
+          "grid": 10,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9999546000702375,
+          "diff": 4.539992976249074e-05
+        }
+      ]
+    },
+    "external": {
+      "complete_intervals": 4,
+      "mean": 1.1111111110960266,
+      "variance": 1.421296296257705,
+      "min": 0.05555555555480138,
+      "max": 3.055555555514073,
+      "censored_tails": [
+        {
+          "window": "external",
+          "start": 8,
+          "end": 10,
+          "tau": 1.1111111110960266
+        }
+      ],
+      "cdf": [
+        {
+          "grid": 0,
+          "empirical_cdf": 0.0,
+          "exp1_cdf": 0.0,
+          "diff": 0.0
+        },
+        {
+          "grid": 1,
+          "empirical_cdf": 0.5,
+          "exp1_cdf": 0.6321205588285577,
+          "diff": -0.13212055882855767
+        },
+        {
+          "grid": 2,
+          "empirical_cdf": 0.75,
+          "exp1_cdf": 0.8646647167633873,
+          "diff": -0.1146647167633873
+        },
+        {
+          "grid": 4,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9816843611112658,
+          "diff": 0.01831563888873422
+        },
+        {
+          "grid": 6,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9975212478233336,
+          "diff": 0.0024787521766663767
+        },
+        {
+          "grid": 8,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9996645373720975,
+          "diff": 0.00033546262790251635
+        },
+        {
+          "grid": 10,
+          "empirical_cdf": 1.0,
+          "exp1_cdf": 0.9999546000702375,
+          "diff": 4.539992976249074e-05
+        }
+      ]
+    }
+  },
+  "truncation": [
+    {
+      "fraction": 0.5,
+      "kept_events": 6,
+      "full_events": 10,
+      "tie": true,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.6666666666666301,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "status": "converged"
+      },
+      "dev_total_loglik": -8.432790648648986,
+      "external_total_loglik": -8.288527099099177
+    },
+    {
+      "fraction": 0.6,
+      "kept_events": 8,
+      "full_events": 10,
+      "tie": true,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.7407407407007985,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "status": "converged"
+      },
+      "dev_total_loglik": -10.400836739602704,
+      "external_total_loglik": -8.607825777025026
+    },
+    {
+      "fraction": 0.7,
+      "kept_events": 8,
+      "full_events": 10,
+      "tie": true,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.634920634920635,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "status": "converged"
+      },
+      "dev_total_loglik": -11.634042178220769,
+      "external_total_loglik": -8.166227438316735
+    },
+    {
+      "fraction": 0.8,
+      "kept_events": 8,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 2,
+        "mu": 0.5513395219077705,
+        "alpha": 0.015198693494600606,
+        "branching_ratio": 0.007599346747300303,
+        "status": "converged"
+      },
+      "dev_total_loglik": -12.701981628190353,
+      "external_total_loglik": -7.880673694100202
+    },
+    {
+      "fraction": 0.9,
+      "kept_events": 8,
+      "full_events": 10,
+      "tie": false,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 2,
+        "mu": 0.452245267427927,
+        "alpha": 0.16844160069771819,
+        "branching_ratio": 0.08422080034885909,
+        "status": "converged"
+      },
+      "dev_total_loglik": -13.600107854713677,
+      "external_total_loglik": -7.500022729653711
+    },
+    {
+      "fraction": 1.0,
+      "kept_events": 10,
+      "full_events": 10,
+      "tie": true,
+      "candidate_statuses": {
+        "0.5": "converged",
+        "1": "converged",
+        "2": "converged"
+      },
+      "selected": {
+        "beta": 0.5,
+        "mu": 0.5555555555480133,
+        "alpha": 0.0,
+        "branching_ratio": 0.0,
+        "status": "converged"
+      },
+      "dev_total_loglik": -15.877866649021193,
+      "external_total_loglik": -7.906702215142913
+    }
+  ],
+  "verification": {
+    "recursion_max_abs_err": 2.220446049250313e-16,
+    "rescaled_identity_max_abs_err": 0.0,
+    "quadrature_max_abs_err": 1.7852386235972517e-13,
+    "decomposition_sum_max_abs_err": 0.0,
+    "note": "递推对全部beta候选做直接双重求和核对;数值积分为中点法,仅n<=2000的窗;分解每事件份额和应为1"
+  },
+  "headline": {
+    "source_sha256": "dc4f6619595cad1ef16fd5f76582028d2b714ca6e6a6f669a86e81b9915d337e",
+    "violations": [],
+    "selected": {
+      "beta": 0.5,
+      "mu": 0.5555555555480133,
+      "alpha": 0.0,
+      "branching_ratio": 0.0,
+      "status": "converged"
+    },
+    "tie": true,
+    "provisional": false,
+    "candidate_statuses": {
+      "0.5": "converged",
+      "1": "converged",
+      "2": "converged"
+    },
+    "dev_total_loglik": -15.877866649021191,
+    "poisson_delta_loglik": -3.552713678800501e-15,
+    "clustering": {
+      "branching_ratio": 0.0,
+      "dev_event_excitation_share_mean": 0.0,
+      "external_event_excitation_share_mean": 0.0,
+      "poisson_reference": {
+        "mu": 0.5555555555555556,
+        "loglik": -15.87786664902119,
+        "hawkes_minus_poisson_loglik": -3.552713678800501e-15
+      },
+      "note": "branching_ratio=alpha/beta为稳态下自激份额;事件级份额为条件强度分解均值,均非因果链"
+    },
+    "external_total_loglik": -7.906702215142913,
+    "truncation": [
+      {
+        "fraction": 0.5,
+        "kept_events": 6,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.6666666666666301,
+          "alpha": 0.0,
+          "branching_ratio": 0.0,
+          "status": "converged"
+        },
+        "external_total_loglik": -8.288527099099177
+      },
+      {
+        "fraction": 0.6,
+        "kept_events": 8,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.7407407407007985,
+          "alpha": 0.0,
+          "branching_ratio": 0.0,
+          "status": "converged"
+        },
+        "external_total_loglik": -8.607825777025026
+      },
+      {
+        "fraction": 0.7,
+        "kept_events": 8,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.634920634920635,
+          "alpha": 0.0,
+          "branching_ratio": 0.0,
+          "status": "converged"
+        },
+        "external_total_loglik": -8.166227438316735
+      },
+      {
+        "fraction": 0.8,
+        "kept_events": 8,
+        "selected": {
+          "beta": 2,
+          "mu": 0.5513395219077705,
+          "alpha": 0.015198693494600606,
+          "branching_ratio": 0.007599346747300303,
+          "status": "converged"
+        },
+        "external_total_loglik": -7.880673694100202
+      },
+      {
+        "fraction": 0.9,
+        "kept_events": 8,
+        "selected": {
+          "beta": 2,
+          "mu": 0.452245267427927,
+          "alpha": 0.16844160069771819,
+          "branching_ratio": 0.08422080034885909,
+          "status": "converged"
+        },
+        "external_total_loglik": -7.500022729653711
+      },
+      {
+        "fraction": 1.0,
+        "kept_events": 10,
+        "selected": {
+          "beta": 0.5,
+          "mu": 0.5555555555480133,
+          "alpha": 0.0,
+          "branching_ratio": 0.0,
+          "status": "converged"
+        },
+        "external_total_loglik": -7.906702215142913
+      }
+    ],
+    "verification": {
+      "recursion_max_abs_err": 2.220446049250313e-16,
+      "rescaled_identity_max_abs_err": 0.0,
+      "quadrature_max_abs_err": 1.7852386235972517e-13,
+      "decomposition_sum_max_abs_err": 0.0,
+      "note": "递推对全部beta候选做直接双重求和核对;数值积分为中点法,仅n<=2000的窗;分解每事件份额和应为1"
+    }
+  }
+}
