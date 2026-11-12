@@ -1,0 +1,59 @@
+{
+  "windows": [
+    {
+      "id": "dev-a",
+      "split": "development",
+      "end": 10,
+      "times": []
+    },
+    {
+      "id": "dev-b",
+      "split": "development",
+      "end": 8,
+      "times": [
+        0.5,
+        3,
+        3.1,
+        7.9
+      ]
+    },
+    {
+      "id": "external",
+      "split": "external",
+      "end": 10,
+      "times": [
+        2,
+        2.1,
+        2.5,
+        8
+      ]
+    }
+  ],
+  "beta_candidates": [
+    0.5,
+    1,
+    2
+  ],
+  "mu_bounds": [
+    0.01,
+    3
+  ],
+  "alpha_bounds": [
+    0,
+    2
+  ],
+  "r_max": 0.8,
+  "solver": {
+    "tolerance": 1e-09,
+    "max_iterations": 1000
+  },
+  "diagnostic_grid": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8,
+    10
+  ]
+}
